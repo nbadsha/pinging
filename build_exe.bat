@@ -44,7 +44,7 @@ if errorlevel 1 (
   exit /b %ERRORLEVEL%
 )
 
-"%PYTHON_EXE%" -m PyInstaller --noconfirm --clean --onefile --windowed --name Pinging --distpath "%SCRIPT_DIR%dist" --workpath "%SCRIPT_DIR%build" "%SCRIPT_DIR%ping.py"
+"%PYTHON_EXE%" -m PyInstaller --noconfirm --clean --onefile --windowed --strip --exclude-module PIL --exclude-module PIL.Image --exclude-module pillow --name Pinging --distpath "%SCRIPT_DIR%dist" --workpath "%SCRIPT_DIR%build" "%SCRIPT_DIR%ping.py"
 if errorlevel 1 (
   echo Build failed with error %ERRORLEVEL%
   exit /b %ERRORLEVEL%

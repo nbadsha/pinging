@@ -223,26 +223,16 @@ class PingApp(tk.Tk):
         # Initialize the global photo image references inside main thread memory
         self.dot_images = {}
         for k, color in DOT_COLORS.items():
-            # Try to generate a small circular dot image (preferred: Pillow)
             try:
-                from PIL import Image, ImageDraw, ImageTk
-                size = (16, 16)
-                pil = Image.new("RGBA", size, (0, 0, 0, 0))
-                draw = ImageDraw.Draw(pil)
-                draw.ellipse((2, 2, size[0]-3, size[1]-3), fill=color)
-                self.dot_images[k] = ImageTk.PhotoImage(pil)
+                img = tk.PhotoImage(width=8, height=8)
+                # fill with color using put; PhotoImage expects color names or #RRGGBB
+                pixels = [[color] * 8 for _ in range(8)]
+                img.put(pixels)
+                self.dot_images[k] = img
             except Exception:
-                # Pillow missing or failed; fallback to a solid square Tk PhotoImage
-                try:
-                    img = tk.PhotoImage(width=8, height=8)
-                    # fill with color using put; PhotoImage expects color names or #RRGGBB
-                    pixels = [[color]*8 for _ in range(8)]
-                    img.put(pixels)
-                    self.dot_images[k] = img
-                except Exception:
-                    print("Failed to create fallback dot image for:", k)
-                    traceback.print_exc()
-                    self.dot_images[k] = None
+                print("Failed to create fallback dot image for:", k)
+                traceback.print_exc()
+                self.dot_images[k] = None
         
         # Setup Theme Styles
         self.style = ttk.Style()
