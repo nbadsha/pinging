@@ -22,6 +22,7 @@ DEVICES = [
     {"name": "SUROJ SHOP", "ip": "192.168.0.37"},
     {"name": "SUROJ HOME", "ip": "192.168.0.37"},
     {"name": "MITHUN HOME", "ip": "192.168.0.44"},
+    {"name": "KADIR", "ip": "192.168.0.33"},
     {"name": "LADIN", "ip": "192.168.0.44"},
 ]
 
