@@ -23,7 +23,7 @@ DEVICES = [
     {"name": "SUROJ HOME", "ip": "192.168.0.37"},
     {"name": "MITHUN HOME", "ip": "192.168.0.44"},
     {"name": "KADIR", "ip": "192.168.0.33"},
-    {"name": "LADIN", "ip": "192.168.0.44"},
+    {"name": "LADIN", "ip": "192.168.0.39"},
 ]
 
 # Simple color map for small dot icons used in the tab bar.
